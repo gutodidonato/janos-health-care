@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import "./cabecalho.modules.css";
 
 export default function Cabecalho() {
   const usuario =
@@ -9,7 +10,6 @@ export default function Cabecalho() {
       ? JSON.parse(sessionStorage.getItem("obj-user"))
       : null;
   const [userLogado] = useState(usuario);
-
 
   const handleLogout = () => {
     sessionStorage.removeItem("obj-user");
@@ -21,7 +21,8 @@ export default function Cabecalho() {
     return (
       <header className="cabecalho">
         <figure>
-          <Image className="logo"
+          <Image
+            className="logo"
             src="/Janushealthcare.jpg"
             alt="Logo Janus HealthCare"
             width={400}
@@ -45,7 +46,8 @@ export default function Cabecalho() {
     return (
       <header className="cabecalho">
         <figure>
-          <Image className="logo"
+          <Image
+            className="logo"
             src="/Janushealthcare.jpg"
             alt="logo janos"
             width={500}
