@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import "./cadastro.modules.css";
 
 export default function Cadastro() {
   const navigate = useRouter();
@@ -15,7 +16,7 @@ export default function Cadastro() {
     cpf: "",
     email: "",
     peso: "",
-    altura: ""
+    altura: "",
   });
 
   const [msg, setMsg] = useState("");
@@ -62,13 +63,13 @@ export default function Cadastro() {
           setTimeout(() => {
             setMsg("");
             setUsuario({
-                id: "",
-                nome: "",
-                nascimento: "",
-                cpf: "",
-                email: "",
-                peso: "",
-                altura: ""
+              id: "",
+              nome: "",
+              nascimento: "",
+              cpf: "",
+              email: "",
+              peso: "",
+              altura: "",
             });
           }, 5000);
         }
@@ -139,7 +140,7 @@ export default function Cadastro() {
                 onChange={handleChange}
               />
             </div>
-            <legend className="cadastroBicicleta">Cadastro da bicicleta</legend>
+            <legend className="cadastroPaciente">Cadastro de Paciente</legend>
             <div>
               <label htmlFor="idAltura">Altura:</label>
               <input

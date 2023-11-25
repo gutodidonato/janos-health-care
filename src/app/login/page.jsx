@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import "./login.modules.css";
 export default function Login() {
   const navigate = useRouter();
 
@@ -33,14 +33,11 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "http://localhost:3000/api/base/POST",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(usuario),
-        }
-      );
+      const response = await fetch("http://localhost:3000/api/base/POST", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(usuario),
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -48,13 +45,13 @@ export default function Login() {
           const token =
             Math.random().toString(36).substring(2) +
             Math.random().toString(36).substring(2);
-      
-          if (typeof window !== 'undefined') {
+
+          if (typeof window !== "undefined") {
             sessionStorage.setItem("token-user", token);
             sessionStorage.setItem("obj-user", JSON.stringify(data.user));
-      
+
             setMsg("Usuário validado com sucesso!");
-      
+
             setTimeout(() => {
               setMsg("");
               navigate.push("/");
@@ -68,8 +65,8 @@ export default function Login() {
               email: "",
               senha: "",
             });
-        },3000);
-        }
+          }, 3000);
+        }
       }
     } catch (error) {
       console.error(error);
